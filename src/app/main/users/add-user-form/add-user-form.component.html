@@ -1,13 +1,11 @@
 <body *ngIf="addUserForm">
-    <div  class="container">
-    
+    <div class="container">
         <div class="header">
             <span>User</span>
             <button (click)="hideAddUserForm()" class="close">
                 <img class="icon pointer" src="/assets/images/exit.png">
             </button>
         </div>
-    
 
         <form [formGroup]="userForm" class="main-container">
             <div class="left-container">
@@ -34,28 +32,25 @@
                 </div>
                 <div class="rfid-container">
                     <span>RFID</span>
-                        <div class="rfid-content">
-                            <div class="icon-holder ">
-                                <img src="/assets/images/rfid-icon.png" class="rfid-icon" alt="fingerprint icon">
-                            </div>
-                            <div class="begin-scan pointer r" [class.disabled]="!editMode" (click)="startRFIDScan()">
-                                Begin scan
-                            </div>
-                            <div class="details-holder">
-                                <span>RFID</span>
-                                <input formControlName="rfidtag" #rfidInput type="text" placeholder="ABC19021DC" [(ngModel)]="newEmployee.rfidtag">
-                            </div>
+                    <div class="rfid-content">
+                        <div class="icon-holder">
+                            <img src="/assets/images/rfid-icon.png" class="rfid-icon" alt="fingerprint icon">
                         </div>
-                </div>
-                <div class="dismiss-container">
-                    <div class="dismiss-user pointer">
-                        Clear
+                        <div class="begin-scan pointer r" [class.disabled]="!editMode" (click)="startRFIDScan()">
+                            Begin scan
+                        </div>
+                        <div class="details-holder">
+                            <span>RFID</span>
+                            <input formControlName="rfidtag" #rfidInput type="text" placeholder="ABC19021DC" [(ngModel)]="newEmployee.rfidtag">
+                        </div>
                     </div>
                 </div>
-    
+                <div class="dismiss-container">
+                    <div class="dismiss-user pointer" (click)="resetForm()">Clear</div>
+                </div>
             </div>
+
             <div class="right-container">
-    
                 <div class="contact-number">
                     <span>Contact Number</span>
                     <input formControlName="phone" class="textbox" type="text" placeholder="+639 xxx xxx xxxx" [(ngModel)]="newEmployee.phone">
@@ -108,7 +103,7 @@
                         <option value="Lead UI/UX Designer">Lead UI/UX Designer</option>
                         <option value="Junior Full Stack Developer">Junior Full Stack Developer</option>
                         <option value="Database Administrator">Database Administrator</option>
-                        <option value="Guest">Guest</option>                       
+                        <option value="Guest">Guest</option>  
                     </select>
                 </div>
     
@@ -116,19 +111,19 @@
                     <span>Fingerprint</span>
                     <div class="fingerprint-content">
                         <div class="icon-holder">
-                        <img src="/assets/images/fingerprint-blue.png" class="fingerprint-icon" alt="fingerprint icon">
-                    </div>
-                    <div class="begin-scan pointer f" [class.disabled]="!editMode" (click)="startFingerprintScan()">
-                        Begin scan
-                    </div>
-                    <div class="details-holder">
-                        <span>Fingerprint ID</span>
-                        <input formControlName="fingerprint" #fingerprintInput type="text" placeholder="135135115161">
-                    </div>
+                            <img src="/assets/images/fingerprint-blue.png" class="fingerprint-icon" alt="fingerprint icon">
+                        </div>
+                        <div class="begin-scan pointer f" [class.disabled]="!editMode" (click)="startFingerprintScan()">
+                            Begin scan
+                        </div>
+                        <div class="details-holder">
+                            <span>Fingerprint ID</span>
+                            <input formControlName="fingerprint" #fingerprintInput type="text" placeholder="135135115161">
+                        </div>
                     </div>
                 </div>
                 <div class="submit-user pointer" (click)="submitUser()">Submit</div>
             </div>
         </form>
     </div>
-    </body>
+</body>
